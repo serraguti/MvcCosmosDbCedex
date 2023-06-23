@@ -1,0 +1,24 @@
+﻿@model List<Vehiculo>
+<h1>Vehiculos Cosmos</h1>
+
+<a asp-controller="Coches" asp-action="Create"
+   class="btn btn-success">Create New</a>
+
+@foreach (var coche in Model){
+    <div class="card" style="width: 18rem;">
+        <img src="@coche.Imagen" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">@coche.Marca @coche.Modelo</h5>
+            <p class="card-text"></p>
+            <a asp-controller="Coches" asp-action="Details"
+               asp-route-id="@coche.IdVehiculo"
+               class="btn btn-success">Details</a>
+            <a asp-controller="Coches" asp-action="Edit"
+               asp-route-id="@coche.IdVehiculo"
+               class="btn btn-info">Edit</a>
+            <a asp-controller="Coches" asp-action="Delete"
+            asp-route-id="@coche.IdVehiculo"
+            class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+}
